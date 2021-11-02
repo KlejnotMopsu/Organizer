@@ -1,0 +1,60 @@
+﻿<Window x:Class="Organizer.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Organizer.Views"
+        xmlns:uc="clr-namespace:Organizer.UserControls"
+        mc:Ignorable="d" Background="#0e0b1c" FontSize="25"
+        Title="ShellView" Height="450" Width="800">
+    <Grid x:Name="MainGrid">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!-- TOP CONTROLS -->
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left">
+            
+            <Button x:Name="NotesButton"
+                    Click="NotesButton_Click"
+                    Content="Notes"
+                    Margin="3"
+                    Style="{StaticResource ButtonStyleOne}"/>
+
+            <Button x:Name="DailyChoresButton"
+                    Click="DailyChoresButton_Click"
+                    Content="Daily Chores"
+                    Margin="3"
+                    Style="{StaticResource ButtonStyleOne}"/>
+
+            <Button x:Name="MealsButton"
+                    Click="MealsButton_Click"
+                    Content="Meals"
+                    Margin="3"
+                    Style="{StaticResource ButtonStyleOne}"/>
+
+            <Button x:Name="RemindersButton"
+                    Click="RemindersButton_Click"
+                    Content="Reminders"
+                    Margin="3"
+                    Style="{StaticResource ButtonStyleOne}"/>
+
+        </StackPanel>
+        
+        
+        <!-- CONTENT FRAME -->
+        <!--
+        <uc:ControlSwitcher Grid.Row="1"
+                            x:Name="Switcher"/>
+        -->
+        
+        <ContentControl Grid.Column="1" Grid.Row="2"
+                        x:Name="ActiveItem" />
+        
+    </Grid>
+</Window>
