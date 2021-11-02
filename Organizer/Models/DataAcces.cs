@@ -40,6 +40,10 @@ namespace Organizer.Models
         }
 
         #region Getting data with Dapper
+        /// <summary>
+        /// Gets all notes from database
+        /// </summary>
+        /// <returns></returns>
         public static BindableCollection<NoteModel> GetNotesFromDb()
         {
             BindableCollection<NoteModel> OutV = new BindableCollection<NoteModel>();
@@ -54,6 +58,31 @@ namespace Organizer.Models
             }
 
             foreach (NoteModel n in DbGetterList)
+            {
+                OutV.Add(n);
+            }
+
+            return OutV;
+        }
+
+        /// <summary>
+        /// Gets all daily chores from database
+        /// </summary>
+        /// <returns></returns>
+        public static BindableCollection<DailyChoreModel> GetDailyChoresFromDb()
+        {
+            BindableCollection<DailyChoreModel> OutV = new BindableCollection<DailyChoreModel>();
+            List<DailyChoreModel> DbGetterList = new List<DailyChoreModel>();
+
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
+
+                DbGetterList = db.Query<DailyChoreModel>("SELECT * FROM DAILY_CHORES").ToList();
+            }
+
+            foreach (DailyChoreModel n in DbGetterList)
             {
                 OutV.Add(n);
             }

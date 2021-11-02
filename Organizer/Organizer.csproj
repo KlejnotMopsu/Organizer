@@ -88,6 +88,7 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="DataModels\ApplicationPage.cs" />
+    <Compile Include="Models\DailyChoreModel.cs" />
     <Compile Include="Models\DataAcces.cs" />
     <Compile Include="Models\Globals.cs" />
     <Compile Include="Models\NoteModel.cs" />
@@ -97,6 +98,10 @@
     </Compile>
     <Compile Include="UserControls\NoteDisplayControl.xaml.cs">
       <DependentUpon>NoteDisplayControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ViewModels\DailyChoreViewModel.cs" />
+    <Compile Include="UserControls\Views\DailyChoreView.xaml.cs">
+      <DependentUpon>DailyChoreView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\DailyChoresViewModel.cs" />
     <Compile Include="ViewModels\MealsViewModel.cs" />
@@ -156,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\NoteDisplayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Views\DailyChoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
