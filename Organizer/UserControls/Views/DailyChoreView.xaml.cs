@@ -33,15 +33,24 @@ namespace Organizer.UserControls.Views
             DependencyProperty.Register("AssignedChore", typeof(DailyChoreModel), typeof(DailyChoreView));
         #endregion
 
+        #region Properties
+        public string IsAccomplishedString { get { if (AssignedChore.Is_accomplished_today) return "X"; else return "O"; } }
+        #endregion
+
         #region Constructor
         public DailyChoreView()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
         #endregion
 
         #region Methods
 
         #endregion
+
+        private void CheckDailyChoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine($"Assigne chore - {AssignedChore?.Description}");
+        }
     }
 }

@@ -19,7 +19,6 @@ namespace Organizer.ViewModels
             get { return _currentPage; }
             set { _currentPage = value; NotifyOfPropertyChange(() => CurrentPage); }
         }
-
         #endregion
 
         #region Constructor

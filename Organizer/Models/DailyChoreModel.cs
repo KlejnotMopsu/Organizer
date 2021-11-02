@@ -14,6 +14,10 @@ namespace Organizer.Models
         public DateTime Date_of_addition { get; set; }
         #endregion
 
+        #region Properties
+        public bool Is_accomplished_today { get; set; }
+        #endregion
+
         #region Methods
         public void CheckOut()
         {

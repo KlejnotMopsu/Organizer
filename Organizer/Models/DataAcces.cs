@@ -84,6 +84,7 @@ namespace Organizer.Models
 
             foreach (DailyChoreModel n in DbGetterList)
             {
+                n.Is_accomplished_today = FindDailyChoreAccomplishment(n.Id);
                 OutV.Add(n);
             }
 
@@ -146,6 +147,34 @@ namespace Organizer.Models
 
                 connection.Execute(query, param);
             }
+        }
+        #endregion
+
+        #region Helpers
+        public static bool FindDailyChoreAccomplishment(int choreId)
+        {
+            bool OutV = false;
+
+            int? checker = null;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
+
+                string query = "SELECT d.Id FROM CHORES_DAYS cd " +
+                    "JOIN DAYS d ON d.Id = cd.Id_day " +
+                    "WHERE cd.Id_chore = @cid " +
+                    "AND d.Date = getdate()";
+
+                var param = new { cid = choreId };
+
+                checker = db.QuerySingleOrDefault<int?>(query, param);
+            }
+
+            if (checker != null)
+                OutV = true;
+
+            return OutV;
         }
         #endregion
     }

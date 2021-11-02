@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using Organizer.Models;
+using Organizer.UserControls.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace Organizer.ViewModels
     public class DailyChoresViewModel : Screen
     {
         #region Properties
+        public string CurrentDateString { get { return DateTime.Now.ToShortDateString(); } }
+
         private BindableCollection<DailyChoreModel> _dailyChores;
         public BindableCollection<DailyChoreModel> DailyChores
         {

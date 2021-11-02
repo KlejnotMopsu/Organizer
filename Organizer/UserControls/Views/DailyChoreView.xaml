@@ -7,11 +7,28 @@
              xmlns:ucvms="clr-namespace:Organizer.UserControls.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <ucvms:DailyChoreViewModel/>
-    </UserControl.DataContext>
-    
+
     <Grid>
-        <Label Foreground="White" Content="bencnd"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Column="0"
+                Click="CheckDailyChoreButton_Click"
+                x:Name="CheckDailyChoreButton"
+                Content="Check"/>
+
+        <Label Grid.Column="1"
+               Foreground="White"
+               Content="{Binding AssignedChore.Description,
+            RelativeSource={RelativeSource AncestorType=local:DailyChoreView}}"/>
+
+        <Label Grid.Column="2"
+               Foreground="White"
+               Content="{Binding IsAccomplishedString,
+            RelativeSource={RelativeSource AncestorType=local:DailyChoreView}}"/>
+
     </Grid>
 </UserControl>

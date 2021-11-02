@@ -16,7 +16,7 @@
         <StackPanel>
             
             <Label Foreground="Wheat"
-               Content="There will by daily chores here"
+               Content="{Binding CurrentDateString}"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                FontSize="30"/>
@@ -31,8 +31,7 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
 
-                        <ucvs:DailyChoreView 
-                            AssignedChore="{Binding Path=.}"/>
+                        <ucvs:DailyChoreView AssignedChore="{Binding Path=.}"/>
 
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
