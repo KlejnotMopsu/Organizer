@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Organizer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,24 @@ namespace Organizer.ViewModels
 {
     public class RemindersViewModel : Screen
     {
+        #region Properties
+        private BindableCollection<ReminderModel> _remindersCollection;
+        public BindableCollection<ReminderModel> RemindersCollection
+        {
+            get { return _remindersCollection; }
+            set { _remindersCollection = value; }
+        }
+        #endregion
 
+        #region Constructor
+        public RemindersViewModel()
+        {
+            RemindersCollection = Globals.AllReminders;
+        }
+        #endregion
+
+        #region Methods
+
+        #endregion
     }
 }

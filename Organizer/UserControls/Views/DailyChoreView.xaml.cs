@@ -51,6 +51,10 @@ namespace Organizer.UserControls.Views
         private void CheckDailyChoreButton_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine($"Assigne chore - {AssignedChore?.Description}");
+            Console.WriteLine($"IS acc - {AssignedChore?.Is_accomplished_today}");
+            AssignedChore.Is_accomplished_today = true;
+
+            AssignedChore.CheckOut();
         }
     }
 }

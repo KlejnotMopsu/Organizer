@@ -14,12 +14,26 @@
     <Grid>
         
         <StackPanel>
-            
-            <Label Foreground="Wheat"
-               Content="{Binding CurrentDateString}"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               FontSize="30"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0"
+                       Foreground="Wheat"
+                       Content="{Binding CurrentDateString}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="30"/>
+
+                <Button Grid.Column="1"
+                        x:Name="AddChoreButton"
+                        Content="Add chore"
+                        Margin="5"/>
+            </Grid>
+
 
             <ItemsControl x:Name="DailyChoresItemsControl" 
                                   ItemsSource="{Binding DailyChores, Mode=TwoWay}">

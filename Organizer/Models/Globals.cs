@@ -17,15 +17,19 @@ namespace Organizer.Models
         #region Properties
         public static BindableCollection<NoteModel> AllNotes { get; set; }
         public static BindableCollection<DailyChoreModel> AllDailyChores { get; set; }
+        public static BindableCollection<ReminderModel> AllReminders { get; set; }
         #endregion
 
-        #region Methods
+        #region Initializing
         public static void InitializeGlobals()
         {
             AllNotes = DataAcces.GetNotesFromDb();
             AllDailyChores = DataAcces.GetDailyChoresFromDb();
+            AllReminders = DataAcces.GetRemindersFromDb();
         }
+        #endregion
 
+        #region Methods     
         public static void AddNoteToDb(string noteContent)
         {
             DataAcces.InsertNote(noteContent);

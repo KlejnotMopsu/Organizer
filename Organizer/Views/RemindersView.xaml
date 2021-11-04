@@ -13,10 +13,52 @@
     </UserControl.DataContext>
     
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
         <Label Content="There will be reminders here"
                Foreground="Wheat"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"
                FontSize="30"/>
+
+        <ItemsControl Grid.Row="1"
+                      x:Name="RemindersItemsControl" 
+                      ItemsSource="{Binding RemindersCollection}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="225"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0"
+                               HorizontalAlignment="Right"
+                               Foreground="White"
+                               Content="{Binding Path=FormatedRemindDate}"/>
+
+                        <Separator Grid.Column="1" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        
+                        <Label Grid.Column="2"
+                               HorizontalAlignment="Left"
+                               Foreground="White"
+                               Content="{Binding Path=Description}"/>
+                        
+                    </Grid>
+
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
     </Grid>
 </uc:BaseUserControl>

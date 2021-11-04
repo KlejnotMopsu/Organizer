@@ -32,5 +32,12 @@ namespace Organizer.ViewModels
         #region Methods
 
         #endregion
+
+        #region Button clicks
+        public void AddChoreButton()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

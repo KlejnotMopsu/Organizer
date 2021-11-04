@@ -29,6 +29,7 @@
                Foreground="White"
                Content="{Binding IsAccomplishedString,
             RelativeSource={RelativeSource AncestorType=local:DailyChoreView}}"/>
-
+        
     </Grid>
+
 </UserControl>

@@ -92,6 +92,7 @@
     <Compile Include="Models\DataAcces.cs" />
     <Compile Include="Models\Globals.cs" />
     <Compile Include="Models\NoteModel.cs" />
+    <Compile Include="Models\ReminderModel.cs" />
     <Compile Include="UserControls\BaseUserControl.cs" />
     <Compile Include="UserControls\ControlSwitcher.xaml.cs">
       <DependentUpon>ControlSwitcher.xaml</DependentUpon>

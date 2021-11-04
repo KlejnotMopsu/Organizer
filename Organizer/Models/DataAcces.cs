@@ -90,9 +90,38 @@ namespace Organizer.Models
 
             return OutV;
         }
+
+        /// <summary>
+        /// Gets all reminders from database
+        /// </summary>
+        /// <returns></returns>
+        public static BindableCollection<ReminderModel> GetRemindersFromDb()
+        {
+            BindableCollection<ReminderModel> OutV = new BindableCollection<ReminderModel>();
+            List<ReminderModel> DbGetterList = new List<ReminderModel>();
+
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
+
+                DbGetterList = db.Query<ReminderModel>("SELECT * FROM REMINDERS").ToList();
+            }
+
+            foreach (ReminderModel n in DbGetterList)
+            {
+                OutV.Add(n);
+            }
+
+            return OutV;
+        }
         #endregion
 
         #region Inserting data with Dapper
+        /// <summary>
+        /// Inserts note to database
+        /// </summary>
+        /// <param name="noteContent">Contents of the note</param>
         public static void InsertNote(string noteContent)
         {
             using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
@@ -101,6 +130,26 @@ namespace Organizer.Models
                     connection.Open();
 
                 connection.Execute("INSERT INTO NOTES(Content) VALUES(@content)", new { content = noteContent });
+            }
+        }
+
+        /// <summary>
+        /// Inserts reminder into database
+        /// </summary>
+        /// <param name="reminderDescription">Reminder Description</param>
+        /// <param name="remindDate">Reminder date and time of firing</param>
+        public static void InsertReminder(string reminderDescription, DateTime remindDate)
+        {
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                connection.Execute("INSERT INTO REMINDERS(Description, Remind_date) VALUES(@content, @dateandtime)",
+                    new {
+                        content = reminderDescription,
+                        dateandtime = remindDate
+                    });
             }
         }
         #endregion
