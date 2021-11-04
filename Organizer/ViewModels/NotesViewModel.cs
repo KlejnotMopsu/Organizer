@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace Organizer.ViewModels
 {    
-    public class NotesViewModel : Screen
+    public class NotesViewModel : Conductor<object>.Collection.AllActive
     {
         #region Properties
         private System.Windows.Visibility _noteAdderVisibility = System.Windows.Visibility.Hidden;
@@ -35,12 +35,24 @@ namespace Organizer.ViewModels
             get { return _notes; }
             set { _notes = value; NotifyOfPropertyChange(() => Notes); }
         }
+
+        private BindableCollection<NoteEntryUserControlViewModel> _noteViewModels = new BindableCollection<NoteEntryUserControlViewModel>();
+        public BindableCollection<NoteEntryUserControlViewModel> NoteViewModels
+        {
+            get { return _noteViewModels; }
+            set { _noteViewModels = value; NotifyOfPropertyChange(() => NoteViewModels); }
+        }
+
         #endregion
 
         #region Constructor
         public NotesViewModel()
         {
             Notes = Globals.AllNotes;
+            foreach (var note in Notes)
+            {
+                NoteViewModels.Add(new NoteEntryUserControlViewModel(note));
+            }
         }
         #endregion
 

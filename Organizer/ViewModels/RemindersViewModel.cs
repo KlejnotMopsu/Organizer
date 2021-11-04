@@ -29,5 +29,12 @@ namespace Organizer.ViewModels
         #region Methods
 
         #endregion
+
+        #region Button clicks
+        public void AddReminderButton()
+        {
+            Console.WriteLine("Adding reminder...");
+        }
+        #endregion
     }
 }

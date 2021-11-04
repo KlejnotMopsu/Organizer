@@ -6,8 +6,6 @@
              xmlns:uc="clr-namespace:Organizer.UserControls"
              xmlns:local="clr-namespace:Organizer.Views"
              xmlns:vms="clr-namespace:Organizer.ViewModels"
-             xmlns:ucvms="clr-namespace:Organizer.UserControls.ViewModels"
-             xmlns:ucvs="clr-namespace:Organizer.UserControls.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -45,7 +43,9 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
 
-                        <ucvs:DailyChoreView AssignedChore="{Binding Path=.}"/>
+                        <Label ContentStringFormat="This but a test label!: {0}" 
+                               Content="{Binding Path=Description}"
+                               Foreground="white"/>
 
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

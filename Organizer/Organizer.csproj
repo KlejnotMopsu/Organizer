@@ -97,23 +97,24 @@
     <Compile Include="UserControls\ControlSwitcher.xaml.cs">
       <DependentUpon>ControlSwitcher.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\NoteDisplayControl.xaml.cs">
-      <DependentUpon>NoteDisplayControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ViewModels\DailyChoreViewModel.cs" />
-    <Compile Include="UserControls\Views\DailyChoreView.xaml.cs">
-      <DependentUpon>DailyChoreView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\DailyChoresViewModel.cs" />
+    <Compile Include="ViewModels\DailyChoreUserControlViewModel.cs" />
     <Compile Include="ViewModels\MealsViewModel.cs" />
+    <Compile Include="ViewModels\NoteEntryUserControlViewModel.cs" />
     <Compile Include="ViewModels\NotesViewModel.cs" />
     <Compile Include="ViewModels\RemindersViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\DailyChoresView.xaml.cs">
       <DependentUpon>DailyChoresView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DailyChoreUserControlView.xaml.cs">
+      <DependentUpon>DailyChoreUserControlView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MealsView.xaml.cs">
       <DependentUpon>MealsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NoteEntryUserControlView.xaml.cs">
+      <DependentUpon>NoteEntryUserControlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NotesView.xaml.cs">
       <DependentUpon>NotesView.xaml</DependentUpon>
@@ -161,19 +162,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\NoteDisplayControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Views\DailyChoreView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\DailyChoresView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DailyChoreUserControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MealsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NoteEntryUserControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

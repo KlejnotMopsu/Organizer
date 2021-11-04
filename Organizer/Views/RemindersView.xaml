@@ -17,12 +17,12 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <Label Content="There will be reminders here"
-               Foreground="Wheat"
-               VerticalAlignment="Center"
-               HorizontalAlignment="Center"
-               FontSize="30"/>
+
+        <Button Grid.Row="0"
+                x:Name="AddReminderButton"
+                Content="Add reminder"
+                Width="200"
+                Margin="5"/>
 
         <ItemsControl Grid.Row="1"
                       x:Name="RemindersItemsControl" 
@@ -51,7 +51,7 @@
                         
                         <Label Grid.Column="2"
                                HorizontalAlignment="Left"
-                               Foreground="White"
+                               Foreground="Wheat"
                                Content="{Binding Path=Description}"/>
                         
                     </Grid>
