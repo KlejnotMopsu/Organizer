@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Organizer.Views"
         xmlns:uc="clr-namespace:Organizer.UserControls"
-        mc:Ignorable="d" Background="red" FontSize="25"
+        mc:Ignorable="d" Background="#0e0b1c" FontSize="25"
         Title="ShellView" Height="450" Width="800">
     <Grid x:Name="MainGrid">
         
