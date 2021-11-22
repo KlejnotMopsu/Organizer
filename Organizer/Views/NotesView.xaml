@@ -38,7 +38,7 @@
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel Orientation="Vertical">
                     
-                    <ItemsControl ItemsSource="{Binding NoteViewModels}">
+                    <ItemsControl ItemsSource="{Binding NotesViewModels}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Vertical"/>

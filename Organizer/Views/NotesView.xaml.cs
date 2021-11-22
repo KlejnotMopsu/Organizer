@@ -29,8 +29,9 @@ namespace Organizer.Views
 
         private void AddNoteButton_Click(object sender, RoutedEventArgs e)
         {
-            NoteAdderText.Visibility = Visibility.Visible;
-            NoteAdderText.Focus();
+            //NoteAdderText.Visibility = Visibility.Visible;
+            //NoteAdderText.Focus();
+
             /*
             TextBox noteAdder = new TextBox()
             {

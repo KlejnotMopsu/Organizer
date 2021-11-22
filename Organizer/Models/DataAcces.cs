@@ -122,15 +122,28 @@ namespace Organizer.Models
         /// Inserts note to database
         /// </summary>
         /// <param name="noteContent">Contents of the note</param>
-        public static void InsertNote(string noteContent)
+        public static NoteModel InsertNote(string noteContent)
         {
+            NoteModel OutV = null;
+
             using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
 
                 connection.Execute("INSERT INTO NOTES(Content) VALUES(@content)", new { content = noteContent });
-            }
+
+                try
+                {
+                    OutV = connection.QuerySingleOrDefault<NoteModel>("SELECT TOP 1 * FROM NOTES ORDER BY Id DESC");
+                }
+                catch
+                {
+                    Console.WriteLine("ERROR: Could not get newly added note in DataAcces.InsertNote()");
+                }
+            }            
+
+            return OutV;
         }
 
         /// <summary>
